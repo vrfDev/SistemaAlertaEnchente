@@ -7,9 +7,7 @@ Um protótipo de aplicação de desktop para monitoramento meteorológico e simu
 
 ## 📸 Screenshot
 
-*(Adicione aqui um screenshot da aplicação em funcionamento para dar uma prévia visual do projeto.)*
-
-![Exemplo de Screenshot](https://i.imgur.com/uR1jWnA.png)
+![Exemplo de Screenshot](https://imgur.com/a/ojxibyk)
 
 ## 📖 Sobre o Projeto
 
