@@ -6,27 +6,23 @@
 Um protótipo de aplicação de desktop para monitoramento meteorológico e simulação de alertas de alagamento, desenvolvido com Python e Tkinter.
 
 ## 📸 Screenshot
-
-![Exemplo de Screenshot]()
 <img src="./FotoProjeto.png" alt="Imagem do projeto" width="100%">
 
 ## 📖 Sobre o Projeto
 
 O **StormShield Sentinel** é uma aplicação que simula uma plataforma de monitoramento climático focada na prevenção de desastres naturais, como enchentes. O objetivo é oferecer uma ferramenta que permita o cadastro de usuários, associe-os a uma localização e os notifique proativamente sobre riscos climáticos iminentes.
 
-Este projeto foi desenvolvido como parte dos estudos de Software and Total Experience, com foco em lógica de programação, modularidade e desenvolvimento de interfaces gráficas.
-
 ## ✨ Funcionalidades
 
 O sistema oferece as seguintes funcionalidades simuladas:
 
-* 📝 **Cadastro de Usuários:** Permite o registro de novos usuários com nome e telefone.
-* 📱 **Validação de Telefone:** Implementa um sistema de confirmação com um código de 6 dígitos que expira em 5 minutos para garantir a validade do número.
-* 🌦️ **Previsão do Tempo:** Exibe uma previsão simulada para os próximos 7 dias para a localização do usuário.
-* 🗺️ **Mapa Meteorológico Simulado:** Apresenta um mapa simplificado em formato de texto com símbolos que representam as condições climáticas.
-* 🚨 **Alertas de Risco:** Verifica periodicamente (a cada 30 segundos) os dados meteorológicos e emite alertas visuais (pop-ups) caso identifique risco "MODERADO" ou "ALTO" de alagamento.
-* 📞 **Números de Emergência:** Acesso rápido a uma lista com os principais números de emergência (Defesa Civil, Bombeiros, etc.).
-* 🎨 **Interface Estilizada:** Possui um tema visual coeso, com cores e fontes personalizadas.
+* **Cadastro de Usuários:** Permite o registro de novos usuários com nome e telefone.
+* **Validação de Telefone:** Implementa um sistema de confirmação com um código de 6 dígitos que expira em 5 minutos para garantir a validade do número.
+* **Previsão do Tempo:** Exibe uma previsão simulada para os próximos 7 dias para a localização do usuário.
+* **Mapa Meteorológico Simulado:** Apresenta um mapa simplificado em formato de texto com símbolos que representam as condições climáticas.
+* **Alertas de Risco:** Verifica periodicamente (a cada 30 segundos) os dados meteorológicos e emite alertas visuais (pop-ups) caso identifique risco "MODERADO" ou "ALTO" de alagamento.
+* **Números de Emergência:** Acesso rápido a uma lista com os principais números de emergência (Defesa Civil, Bombeiros, etc.).
+* **Interface Estilizada:** Possui um tema visual coeso, com cores e fontes personalizadas.
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -75,4 +71,4 @@ O código está organizado de forma modular para separar as responsabilidades:
 
 ## 📄 Licença
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+Este projeto está sob a licença FIAP. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
