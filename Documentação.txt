@@ -1,0 +1,93 @@
+Documentação do Sistema: StormShield Sentinel
+===========================================
+Autores: Vitor Ramos de Farias (RM: 561958)
+Carlos Eduardo Sanches Mariano (RM: 561756)
+
+
+
+1. Visão Geral
+
+O StormShield Sentinel é uma aplicação de desktop desenvolvida em Python com a biblioteca Tkinter. O sistema simula uma plataforma de monitoramento meteorológico e alerta de alagamentos. Seu objetivo principal é cadastrar usuários, associá-los a uma localização (pré fixa) como exemplo e notificá-los proativamente sobre riscos climáticos, como chuvas fortes e elevação do nível de rios.
+
+A aplicação foi projetada seguindo princípios de modularidade, com uma clara separação entre a lógica de negócios e a interface gráfica, e implementa funcionalidades essenciais como validação de dados, simulação de processos assíncronos (alertas) e uma experiência de usuário visualmente agradável.
+
+==============================  
+
+2. Principais Funcionalidades
+
+O sistema oferece as seguintes funcionalidades ao usuário:
+
+2.1 Cadastro de Usuário: Permite que novos usuários se registrem no sistema fornecendo nome e telefone.
+2.2 Validação de Telefone: Implementa um sistema de confirmação por código (simulado) para garantir a validade do número de telefone, com um código que expira em 5 minutos.
+2.3 Visualização de Previsão do Tempo: Exibe uma previsão simulada para os próximos 7 dias para a localização do usuário logado.
+2.4 Mapa Meteorológico: Apresenta um mapa simplificado em formato de texto com símbolos que representam as condições climáticas na região.
+2.5 Alertas de Risco: Verifica periodicamente (a cada 30 segundos) os dados meteorológicos e emite alertas visuais (pop-ups) caso identifique risco "MODERADO" ou "ALTO" de alagamento.
+2.6 Interface Gráfica Estilizada: Possui um tema visual coeso, com cores e fontes personalizadas para uma melhor experiência do usuário.
+
+============================== 
+
+3. Estrutura do Código
+O código está organizado em quatro seções principais:
+
+3.1. Simulação de Banco de Dados
+Como a aplicação não utiliza um banco de dados real, ela simula o armazenamento de informações em memória usando dicionários e listas globais:
+
+3.2 Usuarios_cadastrados: Armazena os dados dos usuários (nome, localização) usando o telefone como chave.
+3.3 Alertas emitidos: Mantém um histórico dos alertas enviados.
+3.4 Dados_meteorologicos_simulados: Guarda os dados do clima para uma localização, evitando que mudem a cada consulta.
+codigos_confirmacao: Armazena os códigos de validação de telefone, junto com seu horário de expiração.
+
+============================== 
+
+4. Módulos de Lógica Principal (Funções(def))
+São funções independentes que realizam tarefas específicas e podem ser reutilizadas em diferentes partes do código:
+
+4.1 Validar_formato_telefone(telefone): Usa expressões regulares (re) para garantir que o telefone inserido siga o padrão (XX) XXXXX-XXXX.
+4.2 Simular_coleta_dados_meteorologicos(localizacao): Simula a obtenção de dados climáticos (temperatura, umidade, etc.) que, na vida real, viriam de uma API ou de sensores.
+4.3 Verificar_risco_alagamento(dados): Analisa os dados meteorológicos e retorna o nível de risco ("BAIXO", "MODERADO" ou "ALTA").
+
+5. Classe Principal da Aplicação (StormShieldApp)
+É o coração do programa. Esta classe, que herda de tk.Tk, controla todas as janelas, botões e a lógica da interface gráfica. Seus métodos principais são:
+
+5.1) __init__(self): O "criador". Configura a janela principal, define os estilos, cria os botões do menu inicial e inicia a verificação periódica de alertas.
+5.2) abrir_janela_cadastro(self): Cria e exibe a janela secundária para o cadastro de um novo usuário.
+5.3) realizar_cadastro(self): Processa os dados inseridos na janela de cadastro, valida-os e chama a função de confirmação de número.
+5.4) confirmar_numero_telefone_gui(self, telefone): Gerencia a janela de validação de código, incluindo a geração, exibição e verificação do código de 6 dígitos.
+5.6) verificar_alertas_periodicamente(self): Função crucial que roda em "background". A cada 30 segundos, ela coleta dados, verifica os riscos e, se necessário, dispara um messagebox de alerta.
+5.7) exibir_previsao_semanal(self) e exibir_mapa_meteorologico(self): Métodos que geram e exibem as informações climáticas em janelas de pop-up quando os respectivos botões são clicados.
+
+============================== 
+
+6. Ponto de Entrada da Aplicação
+O bloco if __name__ == "__main__": garante que o código para iniciar a aplicação só seja executado quando o script é rodado diretamente. Ele cria uma instância da classe StormShieldApp e inicia o mainloop(), que mantém a janela aberta e responsiva às ações do usuário.
+
+7. Fluxo de Uso Típico
+Inicialização: O usuário executa o script. A janela principal do "StormShield Sentinel" aparece com quatro opções.
+
+Cadastro:
+O usuário clica em "Cadastrar Novo Usuário".
+Uma nova janela de cadastro se abre.
+O usuário insere seu nome e telefone no formato (XX) XXXXX-XXXX.
+Ao clicar em "Cadastrar", o sistema valida o formato do telefone.
+
+Validação:
+Uma terceira janela aparece, solicitando um código de confirmação. Essa janela também exibe o código simulado (ex: "Código: 123456").
+O usuário digita o código e clica em "Validar".
+O sistema verifica se o código está correto e se não expirou (prazo de 5 minutos).
+Se for válido, o cadastro é concluído, a janela de validação e a de cadastro se fecham, e o usuário é considerado "logado".
+
+Uso das Funcionalidades:
+Com um usuário logado, ele pode agora clicar em "Ver Previsão do Tempo" ou "Ver mapa Meteorológico" para obter as informações simuladas para sua localização ("Osasco, SP").
+
+Monitoramento Contínuo:
+Enquanto a aplicação estiver aberta, a cada 30 segundos a função verificar_alertas_periodicamente roda silenciosamente.
+Se os dados simulados indicarem um risco de alagamento "MODERADO" ou "ALTO", um pop-up de alerta (messagebox.showwarning) surgirá na tela, notificando o usuário imediatamente.
+
+
+Esta documentação resume a arquitetura e o funcionamento do sistema StormShield Sentinel, um protótipo funcional e bem estruturado que demonstra a aplicação de conceitos importantes tanto aprendidos em aula, quanto por fora, gerando uma experiência incrível, desde confirmação da informação colocada pelo usuário, funções para deixar o código mais limpo, até interface o que foi uma experiência incrível, onde pudemos aprender diversos conteúdos que nem sabíamos que era possível.
+
+
+
+
+
+
