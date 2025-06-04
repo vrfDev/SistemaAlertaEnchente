@@ -1,7 +1,7 @@
 # StormShield Sentinel ⛈️
 
 ![Python Version](https://img.shields.io/badge/python-3.x-blue.svg)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![License: FIAP](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 Um protótipo de aplicação de desktop para monitoramento meteorológico e simulação de alertas de alagamento, desenvolvido com Python e Tkinter.
 
